@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>FLR Sistemas — apps</title>
 <meta name="description" content="FLR Sistemas | Criando soluções inteligentes. Transformando lógica complexa em aplicativos simples e eficientes.">
+<link rel="canonical" href="https://flrsistemas.com.br/">
+<link rel="alternate" hreflang="pt" href="https://flrsistemas.com.br/">
+<link rel="alternate" hreflang="en" href="https://flrsistemas.com.br/en/">
+<link rel="alternate" hreflang="es" href="https://flrsistemas.com.br/es/">
+<link rel="alternate" hreflang="x-default" href="https://flrsistemas.com.br/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FLR Sistemas">
 <meta property="og:locale" content="pt_BR">
@@ -89,17 +94,45 @@
     color: var(--muted);
     font-size: .88rem;
   }
+
+  /* Seletor de idioma: PT | EN | ES, discreto, no canto do topo. */
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .langs { display: flex; gap: 4px; margin-left: auto; font-size: .85rem; }
+  .langs a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .langs a:hover, .langs a:focus-visible { color: var(--text); }
+  .langs a[aria-current="page"] { color: var(--text); border-color: var(--muted); font-weight: 600; }
+  nav.langs-solo { display: flex; justify-content: flex-end; padding-top: 24px; }
+
 </style>
+<script>
+  /* Escolha automatica de idioma, so na primeira visita e so na pagina padrao (pt). */
+  (function () {
+    try {
+      var salvo = localStorage.getItem('lang');
+      var l = salvo || String((navigator.languages && navigator.languages[0]) || navigator.language || 'pt').slice(0, 2).toLowerCase();
+      if (l === 'pt') return;
+      location.replace('/' + (l === 'es' ? 'es' : 'en') + '/');
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
 <main>
 
+  <nav class="langs langs-solo" aria-label="Language"><a href="/" lang="pt" hreflang="pt" aria-current="page" onclick="try{localStorage.setItem('lang','pt')}catch(e){}">PT</a><a href="/en/" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">EN</a><a href="/es/" lang="es" hreflang="es" onclick="try{localStorage.setItem('lang','es')}catch(e){}">ES</a></nav>
+
   <header class="site">
-    <h1>FLR Sistemas</h1>
-    <p class="tagline">Apps for Android.</p>
+    <h1 class="company">FLR Sistemas</h1>
+    <p class="tagline">Aplicativos para Android.</p>
   </header>
 
-  <h2>Our apps</h2>
+  <h2>Nossos apps</h2>
   <div class="apps">
 
     <!-- ============================================================
@@ -107,13 +140,12 @@
          ============================================================ -->
     <article class="app">
       <h3>Preço Certo</h3>
-      <p class="what">Android app &middot; for bakers and confectioners</p>
+      <p class="what">App Android · para quem trabalha com confeitaria</p>
       <p class="desc">
-        Know the real cost of every recipe and the price that pays you for your work.
-        Creates a quote and a kitchen sheet as PDF.
+        Saiba o custo real de cada receita e o preço que paga o seu trabalho. Gera orçamento e ficha de cozinha em PDF.
       </p>
       <div class="actions">
-        <a class="button" href="precocerto/">About the app</a>
+        <a class="button" href="/precocerto/">Conhecer o app</a>
         <a class="link" href="https://play.google.com/store/apps/details?id=br.com.flrsistemas.precocerto.app">Google Play</a>
       </div>
     </article>
@@ -123,7 +155,7 @@
   <footer>
     <p>
       FLR Sistemas<br>
-      Contact: <a href="mailto:contato@flrsistemas.com.br">contato@flrsistemas.com.br</a>
+      Contato: <a href="mailto:contato@flrsistemas.com.br">contato@flrsistemas.com.br</a>
     </p>
   </footer>
 

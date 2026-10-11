@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>FLR Sistemas — apps</title>
+<meta name="description" content="FLR Sistemas | Creating smart solutions. Turning complex logic into simple, efficient apps.">
+<link rel="canonical" href="https://flrsistemas.com.br/en/">
+<link rel="alternate" hreflang="pt" href="https://flrsistemas.com.br/">
+<link rel="alternate" hreflang="en" href="https://flrsistemas.com.br/en/">
+<link rel="alternate" hreflang="es" href="https://flrsistemas.com.br/es/">
+<link rel="alternate" hreflang="x-default" href="https://flrsistemas.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FLR Sistemas">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="FLR Sistemas — apps">
+<meta property="og:description" content="FLR Sistemas | Creating smart solutions. Turning complex logic into simple, efficient apps.">
+<meta property="og:url" content="https://flrsistemas.com.br/en/">
+<meta property="og:image" content="https://flrsistemas.com.br/img/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FLR Sistemas: creating smart solutions">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  /* Tema escuro único e NEUTRO: esta página é da empresa, não de um app.
+     A paleta creme, rosa e marrom é do Preço Certo e fica só na página dele.
+     Aqui, cinzas sem cor de marca: cada app novo entra como um cartão e leva a
+     própria identidade na página dele. */
+  :root {
+    color-scheme: dark;
+    --bg: #121418;
+    --surface: #1B1F25;
+    --text: #E8EAED;
+    --muted: #9AA3AE;
+    --border: #2C323A;
+    --accent: #8A94A0;
+    --brand: #E8EAED;
+    --brand-text: #121418;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 16px 72px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; }
+  header.site { padding: 56px 0 8px; }
+  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0; }
+  .tagline { color: var(--muted); margin: 8px 0 0; font-size: 1.1rem; }
+  h2 {
+    font-size: 1.2rem;
+    margin: 44px 0 14px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== Cartão de app =====
+     Cada app do portfólio é um <article class="app">. Para acrescentar outro,
+     copie um cartão inteiro, troque o nome, a descrição e os links. */
+  .apps { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 640px) { .apps { grid-template-columns: 1fr 1fr; } }
+  article.app {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+  }
+  article.app h3 { margin: 0 0 4px; font-size: 1.25rem; }
+  article.app .what { color: var(--muted); font-size: .85rem; margin: 0 0 10px; }
+  article.app p.desc { margin: 0 0 18px; flex: 1; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .button {
+    display: inline-block;
+    background: var(--brand);
+    color: var(--brand-text);
+    padding: 11px 18px;
+    border-radius: 11px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .button:hover, .button:focus-visible { filter: brightness(1.12); }
+  .link { color: var(--muted); font-size: .95rem; }
+  a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  a.button { text-decoration: none; }
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .88rem;
+  }
+
+  /* Seletor de idioma: PT | EN | ES, discreto, no canto do topo. */
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .langs { display: flex; gap: 4px; margin-left: auto; font-size: .85rem; }
+  .langs a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .langs a:hover, .langs a:focus-visible { color: var(--text); }
+  .langs a[aria-current="page"] { color: var(--text); border-color: var(--muted); font-weight: 600; }
+  nav.langs-solo { display: flex; justify-content: flex-end; padding-top: 24px; }
+
+</style>
+</head>
+<body>
+<main>
+
+  <nav class="langs langs-solo" aria-label="Language"><a href="/" lang="pt" hreflang="pt" onclick="try{localStorage.setItem('lang','pt')}catch(e){}">PT</a><a href="/en/" lang="en" hreflang="en" aria-current="page" onclick="try{localStorage.setItem('lang','en')}catch(e){}">EN</a><a href="/es/" lang="es" hreflang="es" onclick="try{localStorage.setItem('lang','es')}catch(e){}">ES</a></nav>
+
+  <header class="site">
+    <h1 class="company">FLR Sistemas</h1>
+    <p class="tagline">Apps for Android.</p>
+  </header>
+
+  <h2>Our apps</h2>
+  <div class="apps">
+
+    <!-- ============================================================
+         APP: Preço Certo
+         ============================================================ -->
+    <article class="app">
+      <h3>Preço Certo</h3>
+      <p class="what">Android app · for bakers and confectioners</p>
+      <p class="desc">
+        Know the real cost of every recipe and the price that pays you for your work. Creates a quote and a kitchen sheet as PDF.
+      </p>
+      <div class="actions">
+        <a class="button" href="/precocerto/en/">About the app</a>
+        <a class="link" href="https://play.google.com/store/apps/details?id=br.com.flrsistemas.precocerto.app">Google Play</a>
+      </div>
+    </article>
+
+  </div>
+
+  <footer>
+    <p>
+      FLR Sistemas<br>
+      Contact: <a href="mailto:contato@flrsistemas.com.br">contato@flrsistemas.com.br</a>
+    </p>
+  </footer>
+
+</main>
+</body>
+</html>
