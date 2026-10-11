@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>FLR Sistemas — apps</title>
+<meta name="description" content="Apps by FLR Sistemas. Preço Certo works out the real cost and the selling price of every recipe for bakers and confectioners.">
+<style>
+  /* Tema escuro único, na mesma paleta da página do Preço Certo e da política
+     de privacidade, para as três parecerem do mesmo lugar. */
+  :root {
+    color-scheme: dark;
+    --bg: #241C1A;
+    --surface: #2E2422;
+    --text: #F2E9E5;
+    --muted: #BFAEA7;
+    --border: #453634;
+    --accent: #7FB79B;
+    --brand: #B85463;
+    --brand-text: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 16px 72px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; }
+  header.site { padding: 56px 0 8px; }
+  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0; }
+  .tagline { color: var(--muted); margin: 8px 0 0; font-size: 1.1rem; }
+  h2 {
+    font-size: 1.2rem;
+    margin: 44px 0 14px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== Cartão de app =====
+     Cada app do portfólio é um <article class="app">. Para acrescentar outro,
+     copie um cartão inteiro, troque o nome, a descrição e os links. */
+  .apps { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 640px) { .apps { grid-template-columns: 1fr 1fr; } }
+  article.app {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+  }
+  article.app h3 { margin: 0 0 4px; font-size: 1.25rem; }
+  article.app .what { color: var(--muted); font-size: .85rem; margin: 0 0 10px; }
+  article.app p.desc { margin: 0 0 18px; flex: 1; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .button {
+    display: inline-block;
+    background: var(--brand);
+    color: var(--brand-text);
+    padding: 11px 18px;
+    border-radius: 11px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .button:hover, .button:focus-visible { filter: brightness(1.12); }
+  .link { color: var(--muted); font-size: .95rem; }
+  a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  a.button { text-decoration: none; }
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .88rem;
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header class="site">
+    <h1>FLR Sistemas</h1>
+    <p class="tagline">Apps for Android.</p>
+  </header>
+
+  <h2>Our apps</h2>
+  <div class="apps">
+
+    <!-- ============================================================
+         APP: Preço Certo
+         ============================================================ -->
+    <article class="app">
+      <h3>Preço Certo</h3>
+      <p class="what">Android app &middot; for bakers and confectioners</p>
+      <p class="desc">
+        Know the real cost of every recipe and the price that pays you for your work.
+        Creates a quote and a kitchen sheet as PDF.
+      </p>
+      <div class="actions">
+        <a class="button" href="precocerto/">About the app</a>
+        <a class="link" href="https://play.google.com/store/apps/details?id=br.com.flrsistemas.precocerto.app">Google Play</a>
+      </div>
+    </article>
+
+  </div>
+
+  <footer>
+    <p>
+      FLR Sistemas<br>
+      Contact: <a href="mailto:contato@flrsistemas.com.br">contato@flrsistemas.com.br</a>
+    </p>
+  </footer>
+
+</main>
+</body>
+</html>
