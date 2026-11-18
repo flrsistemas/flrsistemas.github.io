@@ -141,6 +141,14 @@
   .updated { color: var(--muted); font-size: .88rem; }
   .callout { background: var(--surface); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; }
   footer a { color: var(--muted); }
+
+  /* Icone e miniatura nos cartoes */
+  article.app .app-head { display: flex; align-items: center; gap: 14px; margin: 0 0 14px; }
+  article.app .app-head h3 { margin: 0 0 2px; }
+  article.app .app-head .what { margin: 0; }
+  .app-icon { width: 48px; height: 48px; border-radius: 12px; flex: none; }
+  .thumb { height: 170px; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); margin: 0 0 14px; }
+  .thumb img { display: block; width: 100%; height: auto; }
 </style>
 <script>
   /* Escolha automatica de idioma, so na primeira visita e so na pagina padrao (pt). */

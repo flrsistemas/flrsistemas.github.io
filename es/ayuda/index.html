@@ -141,6 +141,14 @@
   .updated { color: var(--muted); font-size: .88rem; }
   .callout { background: var(--surface); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; }
   footer a { color: var(--muted); }
+
+  /* Icone e miniatura nos cartoes */
+  article.app .app-head { display: flex; align-items: center; gap: 14px; margin: 0 0 14px; }
+  article.app .app-head h3 { margin: 0 0 2px; }
+  article.app .app-head .what { margin: 0; }
+  .app-icon { width: 48px; height: 48px; border-radius: 12px; flex: none; }
+  .thumb { height: 170px; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); margin: 0 0 14px; }
+  .thumb img { display: block; width: 100%; height: auto; }
 </style>
 </head>
 <body>
@@ -155,34 +163,125 @@
 
   <nav class="tabs" aria-label="Secciones del sitio"><a href="/es/">Apps</a><a href="/es/novedades/">Novedades</a><a href="/es/ayuda/" aria-current="page">Ayuda</a><a href="/es/contacto/">Contacto</a><a href="/es/privacidad/">Privacidad</a></nav>
 
+  <style>
+    .help-search { width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text); font: inherit; margin: 0 0 16px; }
+    .help-search:focus { outline: 2px solid var(--muted); outline-offset: 1px; }
+    .topics { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; padding: 0; list-style: none; }
+    .topics a { display: inline-block; padding: 7px 14px; border: 1px solid var(--border); border-radius: 999px;
+      color: var(--muted); text-decoration: none; font-size: .92rem; background: var(--surface); }
+    .topics a:hover, .topics a:focus-visible { color: var(--text); border-color: var(--muted); }
+    section.faq-group { margin: 30px 0 0; scroll-margin-top: 16px; }
+    section.faq-group h2 { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; margin: 0 0 12px; padding: 0; border: 0; }
+    section.faq-group h2 .ico { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px;
+      background: var(--surface); border: 1px solid var(--border); font-size: 1.05rem; }
+    section.faq-group .count { margin-left: auto; font-size: .8rem; color: var(--muted); font-weight: 400; }
+    .faq-list { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .faq-list details { border-top: 1px solid var(--border); }
+    .faq-list details:first-child { border-top: 0; }
+    .faq-list summary { cursor: pointer; padding: 15px 18px; font-weight: 600; list-style: none; display: flex; gap: 12px; align-items: baseline; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: "+"; margin-left: auto; color: var(--muted); font-weight: 400; font-size: 1.2rem; line-height: 1; }
+    .faq-list details[open] summary::after { content: "\2212"; }
+    .faq-list details[open] summary { padding-bottom: 8px; }
+    .faq-list details p { margin: 0; padding: 0 18px 16px; color: var(--muted); font-size: .95rem; }
+    .faq-list details p + p { padding-top: 0; margin-top: -6px; }
+    .faq-list summary:hover { background: rgba(255,255,255,.03); }
+    .help-empty { display: none; color: var(--muted); padding: 24px 0; text-align: center; }
+    .help-cta { margin-top: 36px; }
+  </style>
+
   <h1 class="page">Ayuda</h1>
-  <p class="intro">Respuestas rápidas sobre Lista de Compras (la app está en portugués). ¿Dudas sobre Preço Certo? Mira la <a href="/precocerto/es/">página de la app</a>. ¿No encuentras lo que buscas? <a href="/es/contacto/">Escríbenos</a>.</p>
+  <p class="intro">Respuestas rápidas sobre <strong>Lista de Compras</strong> (la app está en portugués). ¿Dudas sobre Preço Certo? Mira la <a href="/precocerto/es/">página de la app</a>.</p>
 
-  <h2 class="group">Cuenta y acceso</h2>
-  <details class="faq"><summary>¿Cómo creo mi cuenta?</summary>
-    <p>En la pantalla inicial de la app, toca "Cadastre-se" (Registrarse), escribe nombre, correo y una contraseña de al menos 8 caracteres, con letras y números. Recibes un correo para confirmar el registro; después solo inicia sesión.</p></details>
-  <details class="faq"><summary>No recibí el correo de confirmación</summary>
-    <p>Espera unos minutos y revisa la carpeta de spam o correo no deseado. El correo llega de "Supabase Auth", el servicio que gestiona el inicio de sesión. Si sigue sin llegar, escríbenos con el correo que usaste.</p></details>
-  <details class="faq"><summary>Olvidé mi contraseña</summary>
-    <p>La app aún no tiene recuperación de contraseña en la pantalla de inicio de sesión. Escríbenos desde el correo registrado y te ayudamos a recuperar el acceso.</p></details>
-  <details class="faq"><summary>¿Cómo elimino mi cuenta y mis datos?</summary>
-    <p>Escríbenos desde el correo registrado pidiendo la eliminación. Mira la <a href="/es/privacidad/">política de privacidad</a> para saber qué se borra.</p></details>
+  <input class="help-search" id="help-q" type="search" placeholder="Buscar una pregunta…" aria-label="Buscar una pregunta…">
+  <ul class="topics"><li><a href="#start">🚀 Primeros pasos</a></li><li><a href="#lists">🛒 Listas y artículos</a></li><li><a href="#share">🤝 Compartir</a></li><li><a href="#account">🔒 Cuenta y datos</a></li></ul>
 
-  <h2 class="group">Listas y artículos</h2>
-  <details class="faq"><summary>¿Cómo comparto una lista?</summary>
-    <p>Abre la lista, toca el ícono de personas (👥), escribe el correo de quien va a participar y toca "Compartilhar" (Compartir). Solo el dueño de la lista puede compartirla.</p></details>
-  <details class="faq"><summary>Aparece "Nenhum usuário cadastrado com este e-mail"</summary>
-    <p>Significa que no existe una cuenta con ese correo. La persona debe crear antes la cuenta en la app, con ese mismo correo. Luego comparte de nuevo.</p></details>
-  <details class="faq"><summary>¿Cómo elimino una lista?</summary>
-    <p>Abre la lista, toca el ícono de personas y "Excluir lista" (Eliminar lista). Esto borra la lista y todos sus artículos para todos los participantes y no se puede deshacer. Quien no es dueño ve "Sair da lista" (Salir de la lista), que quita solo a esa persona.</p></details>
-  <details class="faq"><summary>¿Cómo indico el precio de los artículos?</summary>
-    <p>Usa el campo "Preço (R$)" al agregar el artículo o toca el artículo para editarlo. El total aparece en la lista y en su tarjeta. La app no multiplica por la cantidad: indica el valor del artículo completo.</p></details>
+  <section class="faq-group" id="start">
+    <h2><span class="ico">🚀</span>Primeros pasos<span class="count">3 preguntas</span></h2>
+    <div class="faq-list">
+      <details><summary>¿Cómo creo mi cuenta?</summary>
+        <p>En la pantalla inicial de la app, toca "Cadastre-se" (Registrarse), escribe nombre, correo y una contraseña de al menos 8 caracteres, con letras y números. Recibes un correo para confirmar el registro; después solo inicia sesión.</p></details>
+      <details><summary>No recibí el correo de confirmación</summary>
+        <p>Espera unos minutos y revisa la carpeta de spam o correo no deseado. El correo llega de "Supabase Auth", el servicio que gestiona el inicio de sesión. Si sigue sin llegar, escríbenos con el correo que usaste.</p></details>
+      <details><summary>¿Cómo la instalo en el celular?</summary>
+        <p>En Android (Chrome), abre la app, toca el menú ⋮ y "Instalar app" o "Añadir a la pantalla de inicio".</p>
+        <p>En iPhone (Safari), toca Compartir y "Añadir a pantalla de inicio".</p></details>
+    </div>
+  </section>
 
-  <h2 class="group">Celular e internet</h2>
-  <details class="faq"><summary>¿Cómo la instalo en el celular?</summary>
-    <p>En Android (Chrome), abre la app, toca el menú ⋮ y "Instalar app" o "Añadir a la pantalla de inicio". En iPhone (Safari), toca Compartir y "Añadir a pantalla de inicio".</p></details>
-  <details class="faq"><summary>¿Funciona sin internet?</summary>
-    <p>Puedes consultar la última versión guardada de tus listas. Para agregar, marcar o quitar artículos hay que estar conectado.</p></details>
+  <section class="faq-group" id="lists">
+    <h2><span class="ico">🛒</span>Listas y artículos<span class="count">5 preguntas</span></h2>
+    <div class="faq-list">
+      <details><summary>¿Cómo creo una lista?</summary>
+        <p>En la pantalla "Minhas listas" (Mis listas), escribe un nombre, como "Compra del mes", y toca "Criar" (Crear).</p></details>
+      <details><summary>¿Cómo agrego, edito y marco artículos?</summary>
+        <p>Dentro de la lista, escribe el nombre en "Adicionar item…" (Agregar artículo…), elige la categoría (la app sugiere una) y, si quieres, indica cantidad y precio. Toca "Adicionar" (Agregar).</p>
+        <p>Para marcarlo como comprado, toca el cuadradito del artículo. Para editar, toca el nombre. Para quitarlo, toca la ✕.</p></details>
+      <details><summary>¿Cómo indico el precio de los artículos?</summary>
+        <p>Usa el campo "Preço (R$)" al agregar el artículo o toca el artículo para editarlo. El total aparece dentro de la lista y en su tarjeta. La app no multiplica por la cantidad: indica el valor del artículo completo.</p></details>
+      <details><summary>¿Cómo limpio los artículos ya comprados?</summary>
+        <p>En la lista, toca "Limpar comprados" (Limpiar comprados), junto al título "Comprados". Esto quita solo los artículos marcados, para todos los participantes.</p></details>
+      <details><summary>¿Cómo elimino una lista?</summary>
+        <p>Abre la lista, toca el ícono de personas (👥) y "Excluir lista" (Eliminar lista). Esto borra la lista y todos sus artículos para todos los participantes y no se puede deshacer. Solo el dueño ve este botón.</p></details>
+    </div>
+  </section>
+
+  <section class="faq-group" id="share">
+    <h2><span class="ico">🤝</span>Compartir<span class="count">4 preguntas</span></h2>
+    <div class="faq-list">
+      <details><summary>¿Cómo comparto una lista?</summary>
+        <p>Abre la lista, toca el ícono de personas (👥), escribe el correo de quien va a participar y toca "Compartilhar" (Compartir). Solo el dueño de la lista puede compartirla.</p></details>
+      <details><summary>Aparece "Nenhum usuário cadastrado com este e-mail"</summary>
+        <p>Significa que no existe una cuenta con ese correo. La persona debe crear antes la cuenta en la app, con ese mismo correo. Luego comparte de nuevo.</p></details>
+      <details><summary>¿Cómo quito a alguien de la lista?</summary>
+        <p>Abre la lista, toca 👥 y "Remover" (Quitar) junto al nombre. Solo el dueño puede quitar participantes.</p></details>
+      <details><summary>¿Cómo salgo de una lista que compartieron conmigo?</summary>
+        <p>Abre la lista, toca 👥 y "Sair da lista" (Salir de la lista). Esto te quita solo a ti; la lista sigue para los demás.</p></details>
+    </div>
+  </section>
+
+  <section class="faq-group" id="account">
+    <h2><span class="ico">🔒</span>Cuenta y datos<span class="count">3 preguntas</span></h2>
+    <div class="faq-list">
+      <details><summary>Olvidé mi contraseña</summary>
+        <p>La app aún no tiene recuperación de contraseña en la pantalla de inicio de sesión. Escríbenos desde el correo registrado y te ayudamos a recuperar el acceso.</p></details>
+      <details><summary>¿Cómo elimino mi cuenta y mis datos?</summary>
+        <p>Escríbenos desde el correo registrado pidiendo la eliminación. Mira la <a href="/es/privacidad/">política de privacidad</a> para saber qué se borra.</p></details>
+      <details><summary>¿Funciona sin internet?</summary>
+        <p>Puedes consultar la última versión guardada de tus listas. Para agregar, marcar o quitar artículos hay que estar conectado.</p></details>
+    </div>
+  </section>
+
+  <p class="help-empty" id="help-empty">No se encontraron preguntas. Prueba otra palabra o escríbenos.</p>
+
+  <div class="box help-cta">
+    <h3>¿No encontraste lo que buscabas?</h3>
+    <p>Escríbenos y respondemos por correo. Para solicitudes sobre tus datos, mira también la <a href="/es/privacidad/">política de privacidad</a>.</p>
+    <p style="margin-top:12px"><a class="button" href="/es/contacto/">Escríbenos</a></p>
+  </div>
+
+  <script>
+    (function () {
+      var q = document.getElementById('help-q');
+      if (!q) return;
+      var empty = document.getElementById('help-empty');
+      q.addEventListener('input', function () {
+        var t = q.value.trim().toLowerCase(), any = false;
+        document.querySelectorAll('section.faq-group').forEach(function (g) {
+          var shown = 0;
+          g.querySelectorAll('details').forEach(function (d) {
+            var ok = !t || d.textContent.toLowerCase().indexOf(t) !== -1;
+            d.style.display = ok ? '' : 'none';
+            if (ok) { shown++; if (t) d.open = true; }
+          });
+          g.style.display = shown ? '' : 'none';
+          if (shown) any = true;
+        });
+        empty.style.display = any ? 'none' : 'block';
+      });
+    })();
+  </script>
 
   <footer>
     <p>
