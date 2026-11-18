@@ -144,6 +144,14 @@
   .updated { color: var(--muted); font-size: .88rem; }
   .callout { background: var(--surface); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; }
   footer a { color: var(--muted); }
+
+  /* Icone e miniatura nos cartoes */
+  article.app .app-head { display: flex; align-items: center; gap: 14px; margin: 0 0 14px; }
+  article.app .app-head h3 { margin: 0 0 2px; }
+  article.app .app-head .what { margin: 0; }
+  .app-icon { width: 48px; height: 48px; border-radius: 12px; flex: none; }
+  .thumb { height: 170px; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); margin: 0 0 14px; }
+  .thumb img { display: block; width: 100%; height: auto; }
 </style>
 </head>
 <body>
@@ -165,8 +173,14 @@
          APP: Preço Certo
          ============================================================ -->
     <article class="app">
-      <h3>Preço Certo</h3>
-      <p class="what">Android app · for bakers and confectioners</p>
+      <div class="app-head">
+        <img class="app-icon" src="/img/precocerto-icon.svg" alt="" width="48" height="48">
+        <div>
+          <h3>Preço Certo</h3>
+          <p class="what">Android app · for bakers and confectioners</p>
+        </div>
+      </div>
+      <div class="thumb"><img src="/precocerto/img/home.webp" width="944" height="2000" loading="lazy" alt="Preço Certo app home screen"></div>
       <p class="desc">
         Know the real cost of every recipe and the price that pays you for your work. Creates a quote and a kitchen sheet as PDF.
       </p>
@@ -180,8 +194,14 @@
          APP: Lista de Compras
          ============================================================ -->
     <article class="app">
-      <h3>Lista de Compras</h3>
-      <p class="what">Web app (PWA) · for anyone sharing the household shopping</p>
+      <div class="app-head">
+        <img class="app-icon" src="/img/listadecompras-icon.svg" alt="" width="48" height="48">
+        <div>
+          <h3>Lista de Compras</h3>
+          <p class="what">Web app (PWA) · for anyone sharing the household shopping</p>
+        </div>
+      </div>
+      <div class="thumb"><img src="/listadecompras/sobre/img/lista-itens.png" width="1000" height="2120" loading="lazy" alt="Shopping list screen with items, prices and the total"></div>
       <p class="desc">
         Create shopping lists and share them by e-mail: everything updates in real time for everyone. Add each item's price and see the list total. Installs on your phone like an app.
       </p>

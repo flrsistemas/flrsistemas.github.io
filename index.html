@@ -144,6 +144,14 @@
   .updated { color: var(--muted); font-size: .88rem; }
   .callout { background: var(--surface); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; }
   footer a { color: var(--muted); }
+
+  /* Icone e miniatura nos cartoes */
+  article.app .app-head { display: flex; align-items: center; gap: 14px; margin: 0 0 14px; }
+  article.app .app-head h3 { margin: 0 0 2px; }
+  article.app .app-head .what { margin: 0; }
+  .app-icon { width: 48px; height: 48px; border-radius: 12px; flex: none; }
+  .thumb { height: 170px; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); margin: 0 0 14px; }
+  .thumb img { display: block; width: 100%; height: auto; }
 </style>
 <script>
   /* Escolha automatica de idioma, so na primeira visita e so na pagina padrao (pt). */
@@ -176,8 +184,14 @@
          APP: Preço Certo
          ============================================================ -->
     <article class="app">
-      <h3>Preço Certo</h3>
-      <p class="what">App Android · para quem trabalha com confeitaria</p>
+      <div class="app-head">
+        <img class="app-icon" src="/img/precocerto-icon.svg" alt="" width="48" height="48">
+        <div>
+          <h3>Preço Certo</h3>
+          <p class="what">App Android · para quem trabalha com confeitaria</p>
+        </div>
+      </div>
+      <div class="thumb"><img src="/precocerto/img/home.webp" width="944" height="2000" loading="lazy" alt="Tela inicial do app Preço Certo"></div>
       <p class="desc">
         Saiba o custo real de cada receita e o preço que paga o seu trabalho. Gera orçamento e ficha de cozinha em PDF.
       </p>
@@ -191,8 +205,14 @@
          APP: Lista de Compras
          ============================================================ -->
     <article class="app">
-      <h3>Lista de Compras</h3>
-      <p class="what">App web (PWA) · para quem divide as compras da casa</p>
+      <div class="app-head">
+        <img class="app-icon" src="/img/listadecompras-icon.svg" alt="" width="48" height="48">
+        <div>
+          <h3>Lista de Compras</h3>
+          <p class="what">App web (PWA) · para quem divide as compras da casa</p>
+        </div>
+      </div>
+      <div class="thumb"><img src="/listadecompras/sobre/img/lista-itens.png" width="1000" height="2120" loading="lazy" alt="Tela de uma lista de compras com itens, preços e o total"></div>
       <p class="desc">
         Crie listas de compras e compartilhe por e-mail: tudo se atualiza em tempo real para todos. Anote o preço de cada item e veja o total da lista. Instala no celular como um app.
       </p>

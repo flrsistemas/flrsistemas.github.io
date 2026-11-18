@@ -144,6 +144,14 @@
   .updated { color: var(--muted); font-size: .88rem; }
   .callout { background: var(--surface); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; }
   footer a { color: var(--muted); }
+
+  /* Icone e miniatura nos cartoes */
+  article.app .app-head { display: flex; align-items: center; gap: 14px; margin: 0 0 14px; }
+  article.app .app-head h3 { margin: 0 0 2px; }
+  article.app .app-head .what { margin: 0; }
+  .app-icon { width: 48px; height: 48px; border-radius: 12px; flex: none; }
+  .thumb { height: 170px; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); margin: 0 0 14px; }
+  .thumb img { display: block; width: 100%; height: auto; }
 </style>
 </head>
 <body>
@@ -165,8 +173,14 @@
          APP: Preço Certo
          ============================================================ -->
     <article class="app">
-      <h3>Preço Certo</h3>
-      <p class="what">App Android · para quien trabaja en repostería</p>
+      <div class="app-head">
+        <img class="app-icon" src="/img/precocerto-icon.svg" alt="" width="48" height="48">
+        <div>
+          <h3>Preço Certo</h3>
+          <p class="what">App Android · para quien trabaja en repostería</p>
+        </div>
+      </div>
+      <div class="thumb"><img src="/precocerto/img/home.webp" width="944" height="2000" loading="lazy" alt="Pantalla inicial de la app Preço Certo"></div>
       <p class="desc">
         Conoce el costo real de cada receta y el precio que paga tu trabajo. Genera presupuesto y ficha de cocina en PDF.
       </p>
@@ -180,8 +194,14 @@
          APP: Lista de Compras
          ============================================================ -->
     <article class="app">
-      <h3>Lista de Compras</h3>
-      <p class="what">App web (PWA) · para quien comparte las compras del hogar</p>
+      <div class="app-head">
+        <img class="app-icon" src="/img/listadecompras-icon.svg" alt="" width="48" height="48">
+        <div>
+          <h3>Lista de Compras</h3>
+          <p class="what">App web (PWA) · para quien comparte las compras del hogar</p>
+        </div>
+      </div>
+      <div class="thumb"><img src="/listadecompras/sobre/img/lista-itens.png" width="1000" height="2120" loading="lazy" alt="Pantalla de una lista de compras con artículos, precios y el total"></div>
       <p class="desc">
         Crea listas de compras y compártelas por correo: todo se actualiza en tiempo real para todos. Anota el precio de cada artículo y mira el total de la lista. Se instala en el celular como una app.
       </p>
