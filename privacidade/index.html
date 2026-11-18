@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Privacidade — FLR Sistemas</title>
+<meta name="description" content="Política de privacidade dos apps da FLR Sistemas.">
+<link rel="canonical" href="https://flrsistemas.com.br/privacidade/">
+<link rel="alternate" hreflang="pt" href="https://flrsistemas.com.br/privacidade/">
+<link rel="alternate" hreflang="en" href="https://flrsistemas.com.br/en/privacy/">
+<link rel="alternate" hreflang="es" href="https://flrsistemas.com.br/es/privacidad/">
+<link rel="alternate" hreflang="x-default" href="https://flrsistemas.com.br/privacidade/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FLR Sistemas">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Privacidade — FLR Sistemas">
+<meta property="og:description" content="Política de privacidade dos apps da FLR Sistemas.">
+<meta property="og:url" content="https://flrsistemas.com.br/privacidade/">
+<meta property="og:image" content="https://flrsistemas.com.br/img/og-v2.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  /* Tema escuro único e NEUTRO: esta página é da empresa, não de um app.
+     A paleta creme, rosa e marrom é do Preço Certo e fica só na página dele.
+     Aqui, cinzas sem cor de marca: cada app novo entra como um cartão e leva a
+     própria identidade na página dele. */
+  :root {
+    color-scheme: dark;
+    --bg: #121418;
+    --surface: #1B1F25;
+    --text: #E8EAED;
+    --muted: #9AA3AE;
+    --border: #2C323A;
+    --accent: #8A94A0;
+    --brand: #E8EAED;
+    --brand-text: #121418;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 16px 72px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; }
+  header.site { padding: 56px 0 8px; }
+  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0; }
+  .tagline { color: var(--muted); margin: 8px 0 0; font-size: 1.1rem; }
+  h2 {
+    font-size: 1.2rem;
+    margin: 44px 0 14px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== Cartão de app =====
+     Cada app do portfólio é um <article class="app">. Para acrescentar outro,
+     copie um cartão inteiro, troque o nome, a descrição e os links. */
+  .apps { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 640px) { .apps { grid-template-columns: 1fr 1fr; } }
+  article.app {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+  }
+  article.app h3 { margin: 0 0 4px; font-size: 1.25rem; }
+  article.app .what { color: var(--muted); font-size: .85rem; margin: 0 0 10px; }
+  article.app p.desc { margin: 0 0 18px; flex: 1; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .button {
+    display: inline-block;
+    background: var(--brand);
+    color: var(--brand-text);
+    padding: 11px 18px;
+    border-radius: 11px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .button:hover, .button:focus-visible { filter: brightness(1.12); }
+  .link { color: var(--muted); font-size: .95rem; }
+  a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  a.button { text-decoration: none; }
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .88rem;
+  }
+
+  /* Seletor de idioma: PT | EN | ES, discreto, no canto do topo. */
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .langs { display: flex; gap: 4px; margin-left: auto; font-size: .85rem; }
+  .langs a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .langs a:hover, .langs a:focus-visible { color: var(--text); }
+  .langs a[aria-current="page"] { color: var(--text); border-color: var(--muted); font-weight: 600; }
+  nav.langs-solo { display: flex; justify-content: flex-end; padding-top: 24px; }
+
+
+  /* ===== Abas de navegacao ===== */
+  nav.tabs { display: flex; gap: 2px; margin: 22px 0 0; border-bottom: 1px solid var(--border); overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  nav.tabs a { color: var(--muted); text-decoration: none; padding: 10px 14px; white-space: nowrap;
+    border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  nav.tabs a:hover, nav.tabs a:focus-visible { color: var(--text); }
+  nav.tabs a[aria-current="page"] { color: var(--text); font-weight: 600; border-bottom-color: var(--text); }
+  h1.page { font-size: 1.7rem; line-height: 1.25; margin: 34px 0 6px; }
+  p.intro { color: var(--muted); margin: 0 0 22px; }
+  /* Novidades */
+  .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 20px; margin: 0 0 14px; }
+  .news-item time { color: var(--muted); font-size: .85rem; }
+  .news-item h3 { margin: 4px 0 6px; font-size: 1.05rem; }
+  .news-item p, .news-item ul { margin: 0; color: var(--muted); font-size: .95rem; }
+  .news-item ul { padding-left: 20px; }
+  .tag { display: inline-block; margin-left: 6px; padding: 1px 8px; border: 1px solid var(--border); border-radius: 999px;
+    font-size: .72rem; color: var(--muted); vertical-align: middle; }
+  /* Ajuda */
+  h2.group { font-size: 1.1rem; margin: 30px 0 12px; padding-top: 0; border-top: 0; }
+  details.faq { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin: 0 0 10px; }
+  details.faq summary { cursor: pointer; padding: 14px 18px; font-weight: 600; }
+  details.faq p, details.faq ul { margin: 0; padding: 0 18px 16px; color: var(--muted); font-size: .95rem; }
+  details.faq ul { padding-left: 38px; }
+  /* Contato e texto corrido */
+  .box { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin: 0 0 14px; }
+  .box h3 { margin: 0 0 6px; font-size: 1.02rem; }
+  .box p, .box ul { margin: 0; color: var(--muted); font-size: .95rem; }
+  .box ul { padding-left: 20px; }
+  .doc h3 { font-size: 1.05rem; margin: 28px 0 8px; }
+  .doc p, .doc li { color: var(--text); }
+  .doc ul { padding-left: 22px; }
+  .doc li { margin: 4px 0; }
+  .updated { color: var(--muted); font-size: .88rem; }
+  .callout { background: var(--surface); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; }
+  footer a { color: var(--muted); }
+</style>
+<script>
+  /* Escolha automatica de idioma, so na primeira visita e so na pagina padrao (pt). */
+  (function () {
+    try {
+      var salvo = localStorage.getItem('lang');
+      var l = salvo || String((navigator.languages && navigator.languages[0]) || navigator.language || 'pt').slice(0, 2).toLowerCase();
+      if (l === 'pt') return;
+      var alvo = {en: '/en/privacy/', es: '/es/privacidad/'};
+      location.replace(l === 'es' ? alvo.es : alvo.en);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<main>
+
+  <nav class="langs langs-solo" aria-label="Language"><a href="/privacidade/" lang="pt" hreflang="pt" aria-current="page" onclick="try{localStorage.setItem('lang','pt')}catch(e){}">PT</a><a href="/en/privacy/" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">EN</a><a href="/es/privacidad/" lang="es" hreflang="es" onclick="try{localStorage.setItem('lang','es')}catch(e){}">ES</a></nav>
+
+  <header class="site">
+    <p class="company" style="font-size:2.1rem;line-height:1.2;margin:0;font-weight:700"><a href="/" style="text-decoration:none">FLR Sistemas</a></p>
+    <p class="tagline">Aplicativos para Android.</p>
+  </header>
+
+  <nav class="tabs" aria-label="Seções do site"><a href="/">Apps</a><a href="/novidades/">Novidades</a><a href="/ajuda/">Ajuda</a><a href="/contato/">Contato</a><a href="/privacidade/" aria-current="page">Privacidade</a></nav>
+
+  <h1 class="page">Política de privacidade</h1>
+  <p class="intro">Como a FLR Sistemas trata os dados nos seus apps.</p>
+
+  <div class="callout">
+    <p style="margin:0"><strong>Preço Certo:</strong> a política do app está <a href="/precocerto/privacy.html">nesta página</a> (em inglês).<br>
+    <strong>Lista de Compras:</strong> a política completa está logo abaixo.</p>
+  </div>
+
+  <div class="doc">
+  <h2 style="margin-top:36px">Lista de Compras</h2>
+  <p class="updated">Última atualização: 18/11/2026</p>
+
+  <h3>1. Quem é o responsável</h3>
+  <p>O Lista de Compras é um app da FLR Sistemas. Para qualquer assunto sobre seus dados, escreva para <a href="mailto:contato@flrsistemas.com.br">contato@flrsistemas.com.br</a>.</p>
+
+  <h3>2. Quais dados coletamos</h3>
+  <ul>
+    <li><strong>Conta:</strong> seu nome, seu e-mail e sua senha. A senha é guardada de forma protegida (criptografada), e nós não conseguimos ler.</li>
+    <li><strong>Conteúdo que você cria:</strong> o nome das listas, os itens, as quantidades, os preços, as categorias e quais pessoas participam de cada lista.</li>
+  </ul>
+  <p>Não coletamos localização, contatos, fotos, nem dados de pagamento.</p>
+
+  <h3>3. Para que usamos</h3>
+  <ul>
+    <li>Criar a sua conta e deixar você entrar no app.</li>
+    <li>Guardar as suas listas e mostrá-las a você e às pessoas que você convidar.</li>
+    <li>Enviar o e-mail de confirmação do cadastro.</li>
+  </ul>
+  <p>Não usamos os seus dados para publicidade, e não vendemos os seus dados.</p>
+
+  <h3>4. Quem vê as suas informações</h3>
+  <ul>
+    <li><strong>Pessoas que você convida:</strong> quem participa de uma lista vê os itens, os preços e o nome e o e-mail dos outros participantes dela.</li>
+    <li><strong>Pessoas que não participam:</strong> não veem a sua lista nem os seus dados. O banco de dados tem regras de acesso que garantem isso.</li>
+  </ul>
+
+  <h3>5. Serviços que usamos</h3>
+  <ul>
+    <li><strong>Supabase:</strong> guarda a conta e as listas, cuida do login e envia o e-mail de confirmação. Os servidores podem ficar fora do Brasil.</li>
+    <li><strong>GitHub Pages:</strong> hospeda o site e o app. Como em qualquer site, o GitHub recebe o endereço IP de quem acessa.</li>
+    <li><strong>jsDelivr:</strong> entrega uma biblioteca de código usada pelo app, e também recebe o endereço IP de quem acessa.</li>
+  </ul>
+  <p>Não usamos ferramentas de análise de uso, nem anúncios.</p>
+
+  <h3>6. Dados guardados no seu aparelho</h3>
+  <p>O app guarda no navegador do seu aparelho a sua sessão de login e uma cópia das suas listas, itens e totais, para você consultar mesmo sem internet. Ao sair da conta ou limpar os dados do navegador, essa cópia deixa de existir no aparelho.</p>
+
+  <h3>7. Por quanto tempo guardamos</h3>
+  <p>Mantemos os dados enquanto a sua conta existir. Quando uma lista é excluída, os itens dela são apagados para todos os participantes. Você pode pedir a exclusão da conta e dos dados a qualquer momento (veja o item 8).</p>
+
+  <h3>8. Os seus direitos</h3>
+  <p>Pela Lei Geral de Proteção de Dados (LGPD), você pode pedir a confirmação de que tratamos seus dados, o acesso a eles, a correção, a exclusão da conta e dos dados, e a portabilidade. Escreva para <a href="mailto:contato@flrsistemas.com.br">contato@flrsistemas.com.br</a>, do e-mail cadastrado, e respondemos pelo mesmo e-mail.</p>
+
+  <h3>9. Segurança</h3>
+  <p>A conexão é protegida por HTTPS, as senhas são guardadas de forma criptografada, e cada pessoa só consegue ler as listas de que participa. Nenhum sistema é 100% seguro, mas cuidamos para reduzir o risco.</p>
+
+  <h3>10. Crianças</h3>
+  <p>O app não é direcionado a crianças.</p>
+
+  <h3>11. Mudanças nesta política</h3>
+  <p>Se algo mudar, atualizamos esta página e a data no topo.</p>
+  </div>
+
+  <footer>
+    <p>
+      FLR Sistemas<br>
+      Contato: <a href="mailto:contato@flrsistemas.com.br">contato@flrsistemas.com.br</a><br>
+      <a href="/privacidade/">Privacidade</a>
+    </p>
+  </footer>
+
+</main>
+</body>
+</html>
