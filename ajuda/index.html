@@ -175,125 +175,22 @@
 
   <nav class="tabs" aria-label="Seções do site"><a href="/">Apps</a><a href="/novidades/">Novidades</a><a href="/ajuda/" aria-current="page">Ajuda</a><a href="/contato/">Contato</a><a href="/privacidade/">Privacidade</a></nav>
 
-  <style>
-    .help-search { width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border);
-      background: var(--surface); color: var(--text); font: inherit; margin: 0 0 16px; }
-    .help-search:focus { outline: 2px solid var(--muted); outline-offset: 1px; }
-    .topics { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; padding: 0; list-style: none; }
-    .topics a { display: inline-block; padding: 7px 14px; border: 1px solid var(--border); border-radius: 999px;
-      color: var(--muted); text-decoration: none; font-size: .92rem; background: var(--surface); }
-    .topics a:hover, .topics a:focus-visible { color: var(--text); border-color: var(--muted); }
-    section.faq-group { margin: 30px 0 0; scroll-margin-top: 16px; }
-    section.faq-group h2 { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; margin: 0 0 12px; padding: 0; border: 0; }
-    section.faq-group h2 .ico { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px;
-      background: var(--surface); border: 1px solid var(--border); font-size: 1.05rem; }
-    section.faq-group .count { margin-left: auto; font-size: .8rem; color: var(--muted); font-weight: 400; }
-    .faq-list { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
-    .faq-list details { border-top: 1px solid var(--border); }
-    .faq-list details:first-child { border-top: 0; }
-    .faq-list summary { cursor: pointer; padding: 15px 18px; font-weight: 600; list-style: none; display: flex; gap: 12px; align-items: baseline; }
-    .faq-list summary::-webkit-details-marker { display: none; }
-    .faq-list summary::after { content: "+"; margin-left: auto; color: var(--muted); font-weight: 400; font-size: 1.2rem; line-height: 1; }
-    .faq-list details[open] summary::after { content: "\2212"; }
-    .faq-list details[open] summary { padding-bottom: 8px; }
-    .faq-list details p { margin: 0; padding: 0 18px 16px; color: var(--muted); font-size: .95rem; }
-    .faq-list details p + p { padding-top: 0; margin-top: -6px; }
-    .faq-list summary:hover { background: rgba(255,255,255,.03); }
-    .help-empty { display: none; color: var(--muted); padding: 24px 0; text-align: center; }
-    .help-cta { margin-top: 36px; }
-  </style>
-
   <h1 class="page">Ajuda</h1>
-  <p class="intro">Respostas rápidas sobre o <strong>Lista de Compras</strong>. Dúvidas sobre o Preço Certo? Veja a <a href="/precocerto/">página do app</a>.</p>
+  <p class="intro">Escolha o app para ver as perguntas frequentes.</p>
 
-  <input class="help-search" id="help-q" type="search" placeholder="Buscar uma pergunta…" aria-label="Buscar uma pergunta…">
-  <ul class="topics"><li><a href="#start">🚀 Começando</a></li><li><a href="#lists">🛒 Listas e itens</a></li><li><a href="#share">🤝 Compartilhamento</a></li><li><a href="#account">🔒 Conta e dados</a></li></ul>
-
-  <section class="faq-group" id="start">
-    <h2><span class="ico">🚀</span>Começando<span class="count">3 perguntas</span></h2>
-    <div class="faq-list">
-      <details><summary>Como crio a minha conta?</summary>
-        <p>Na tela inicial do app, toque em "Cadastre-se", informe nome, e-mail e uma senha de no mínimo 8 caracteres, com letras e números. Você recebe um e-mail para confirmar o cadastro; depois é só entrar.</p></details>
-      <details><summary>Não recebi o e-mail de confirmação</summary>
-        <p>Espere alguns minutos e olhe a caixa de spam ou lixo eletrônico. O e-mail vem de "Supabase Auth", o serviço que cuida do login. Se continuar sem chegar, escreva para nós com o e-mail que você usou.</p></details>
-      <details><summary>Como instalo no celular?</summary>
-        <p>No Android (Chrome), abra o app, toque no menu ⋮ e em "Instalar app" ou "Adicionar à tela inicial".</p>
-        <p>No iPhone (Safari), toque em Compartilhar e em "Adicionar à Tela de Início".</p></details>
-    </div>
-  </section>
-
-  <section class="faq-group" id="lists">
-    <h2><span class="ico">🛒</span>Listas e itens<span class="count">5 perguntas</span></h2>
-    <div class="faq-list">
-      <details><summary>Como crio uma lista?</summary>
-        <p>Na tela "Minhas listas", digite um nome, como "Mercado do mês", e toque em "Criar".</p></details>
-      <details><summary>Como adiciono, edito e marco itens?</summary>
-        <p>Dentro da lista, digite o nome no campo "Adicionar item…", escolha a categoria (o app sugere uma) e, se quiser, informe quantidade e preço. Toque em "Adicionar".</p>
-        <p>Para marcar como comprado, toque no quadradinho do item. Para editar, toque no nome. Para remover, toque no ✕.</p></details>
-      <details><summary>Como informo o preço dos itens?</summary>
-        <p>Use o campo "Preço (R$)" ao adicionar o item, ou toque no item para editar. O total aparece dentro da lista e no cartão dela. O app não multiplica por quantidade: informe o valor do item inteiro.</p></details>
-      <details><summary>Como limpo os itens já comprados?</summary>
-        <p>Na lista, toque em "Limpar comprados", ao lado do título "Comprados". Isso remove só os itens marcados, para todos os participantes.</p></details>
-      <details><summary>Como excluo uma lista?</summary>
-        <p>Abra a lista, toque no ícone de pessoas (👥) e em "Excluir lista". Isso apaga a lista e todos os itens para todos os participantes e não dá para desfazer. Só o dono vê esse botão.</p></details>
-    </div>
-  </section>
-
-  <section class="faq-group" id="share">
-    <h2><span class="ico">🤝</span>Compartilhamento<span class="count">4 perguntas</span></h2>
-    <div class="faq-list">
-      <details><summary>Como compartilho uma lista?</summary>
-        <p>Abra a lista, toque no ícone de pessoas (👥), informe o e-mail de quem vai participar e toque em "Compartilhar". Só o dono da lista pode compartilhar.</p></details>
-      <details><summary>Aparece "Nenhum usuário cadastrado com este e-mail"</summary>
-        <p>A pessoa precisa criar a conta no app antes, com esse mesmo e-mail. Depois disso, compartilhe de novo.</p></details>
-      <details><summary>Como removo alguém da lista?</summary>
-        <p>Abra a lista, toque em 👥 e em "Remover", ao lado do nome. Só o dono pode remover participantes.</p></details>
-      <details><summary>Como saio de uma lista que compartilharam comigo?</summary>
-        <p>Abra a lista, toque em 👥 e em "Sair da lista". Isso tira só você; a lista continua para os outros.</p></details>
-    </div>
-  </section>
-
-  <section class="faq-group" id="account">
-    <h2><span class="ico">🔒</span>Conta e dados<span class="count">3 perguntas</span></h2>
-    <div class="faq-list">
-      <details><summary>Esqueci a minha senha</summary>
-        <p>O app ainda não tem recuperação de senha pela tela de login. Escreva para nós, do e-mail cadastrado, e ajudamos a recuperar o acesso.</p></details>
-      <details><summary>Como apago a minha conta e os meus dados?</summary>
-        <p>Escreva para nós, do e-mail cadastrado, pedindo a exclusão. Veja a <a href="/privacidade/">política de privacidade</a> para saber o que é apagado.</p></details>
-      <details><summary>Funciona sem internet?</summary>
-        <p>Você consegue consultar a última versão salva das suas listas. Para adicionar, marcar ou remover itens, é preciso estar conectado.</p></details>
-    </div>
-  </section>
-
-  <p class="help-empty" id="help-empty">Nenhuma pergunta encontrada. Tente outra palavra ou fale com a gente.</p>
-
-  <div class="box help-cta">
-    <h3>Não encontrou o que procurava?</h3>
-    <p>Escreva para nós e respondemos por e-mail. Para pedidos sobre os seus dados, veja também a <a href="/privacidade/">política de privacidade</a>.</p>
-    <p style="margin-top:12px"><a class="button" href="/contato/">Falar com a gente</a></p>
+  <div class="box">
+    <h3>Preço Certo</h3>
+    <p>O passo a passo está na página do app.</p>
+    <p style="margin-top:12px"><a class="button" href="/precocerto/#how">Ver o passo a passo</a></p>
   </div>
 
-  <script>
-    (function () {
-      var q = document.getElementById('help-q');
-      if (!q) return;
-      var empty = document.getElementById('help-empty');
-      q.addEventListener('input', function () {
-        var t = q.value.trim().toLowerCase(), any = false;
-        document.querySelectorAll('section.faq-group').forEach(function (g) {
-          var shown = 0;
-          g.querySelectorAll('details').forEach(function (d) {
-            var ok = !t || d.textContent.toLowerCase().indexOf(t) !== -1;
-            d.style.display = ok ? '' : 'none';
-            if (ok) { shown++; if (t) d.open = true; }
-          });
-          g.style.display = shown ? '' : 'none';
-          if (shown) any = true;
-        });
-        empty.style.display = any ? 'none' : 'block';
-      });
-    })();
-  </script>
+  <div class="box">
+    <h3>Lista de Compras</h3>
+    <p>15 perguntas em 4 grupos: primeiros passos, listas e itens, compartilhamento, conta e dados. Com busca.</p>
+    <p style="margin-top:12px"><a class="button" href="/listadecompras/ajuda/">Abrir a ajuda</a></p>
+  </div>
+
+  <p class="intro">Não achou o que procura? <a href="/contato/">Fale com a gente</a>.</p>
 
   <footer>
     <p>
