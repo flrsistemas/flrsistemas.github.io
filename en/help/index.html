@@ -154,9 +154,34 @@
   .thumb { height: 170px; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); margin: 0 0 14px; }
   .thumb img { display: block; width: 100%; height: auto; }
 </style>
+<style id="wide">
+  /* Todas as abas usam a mesma largura em telas grandes (sem "pulo" ao trocar de aba) */
+  html { scrollbar-gutter: stable; }
+  @media (min-width: 1000px) {
+    main.wide { max-width: 1100px; }
+    main.wide .apps { gap: 24px; }
+    main.wide article.app { padding: 26px 28px; }
+    main.wide .thumb { height: 260px; }
+    main.wide article.app > p, main.wide article.app > .summary { max-width: 72ch; }
+    main.wide .grid { grid-template-columns: repeat(3, 1fr); }
+    main.wide ol.steps { grid-template-columns: 1fr 1fr; }
+    main.wide .shots { flex-wrap: wrap; overflow: visible; scroll-snap-type: none; gap: 20px; }
+    main.wide .shots img { width: 220px; }
+    main.wide .shots figcaption { max-width: 220px; }
+    main.wide .shots.docs img { width: 300px; }
+    main.wide .shots.docs figcaption { max-width: 300px; }
+    /* abas de texto (Novidades, Ajuda, Contato, Privacidade): mesma largura, conteudo em colunas */
+    main.wide .boxes { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin: 0 0 22px; }
+    main.wide .boxes .box { margin: 0; }
+    main.wide .news-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+    main.wide .news-list .news-item { margin: 0; }
+    main.wide .faq-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; align-items: start; }
+    main.wide .faq-cols section.faq-group:first-child, main.wide .faq-cols section.faq-group:nth-child(2) { margin-top: 30px; }
+  }
+</style>
 </head>
 <body>
-<main>
+<main class="wide">
 
   <nav class="langs langs-solo" aria-label="Language"><a href="/ajuda/" lang="pt" hreflang="pt" onclick="try{localStorage.setItem('lang','pt')}catch(e){}">PT</a><a href="/en/help/" lang="en" hreflang="en" aria-current="page" onclick="try{localStorage.setItem('lang','en')}catch(e){}">EN</a><a href="/es/ayuda/" lang="es" hreflang="es" onclick="try{localStorage.setItem('lang','es')}catch(e){}">ES</a></nav>
 
@@ -170,6 +195,7 @@
   <h1 class="page">Help</h1>
   <p class="intro">Pick the app to see its frequently asked questions.</p>
 
+  <div class="boxes">
   <div class="box">
     <h3>Preço Certo</h3>
     <p>The step-by-step is on the app page.</p>
@@ -180,6 +206,7 @@
     <h3>Lista de Compras</h3>
     <p>16 questions in 4 groups: getting started, lists and items, sharing, account and data. With search.</p>
     <p style="margin-top:12px"><a class="button" href="/listadecompras/ajuda/en/">Open the help</a></p>
+  </div>
   </div>
 
   <p class="intro">Can't find what you need? <a href="/en/contact/">Get in touch</a>.</p>
