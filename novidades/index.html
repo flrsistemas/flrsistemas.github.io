@@ -1,13 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
 <meta charset="utf-8">
-<title>Redirecting…</title>
-<meta name="robots" content="noindex">
-<link rel="canonical" href="https://flrsistemas.com.br/pt/novidades/">
-<meta http-equiv="refresh" content="0; url=/pt/novidades/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Novidades — FLR Sistemas</title>
+<meta name="description" content="Novidades e atualizações dos apps da FLR Sistemas.">
+<link rel="canonical" href="https://flrsistemas.com.br/novidades/">
+<link rel="alternate" hreflang="pt" href="https://flrsistemas.com.br/novidades/">
+<link rel="alternate" hreflang="en" href="https://flrsistemas.com.br/en/news/">
+<link rel="alternate" hreflang="es" href="https://flrsistemas.com.br/es/novedades/">
+<link rel="alternate" hreflang="x-default" href="https://flrsistemas.com.br/novidades/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FLR Sistemas">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Novidades — FLR Sistemas">
+<meta property="og:description" content="Novidades e atualizações dos apps da FLR Sistemas.">
+<meta property="og:url" content="https://flrsistemas.com.br/novidades/">
+<meta property="og:image" content="https://flrsistemas.com.br/img/og-v2.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  /* Tema escuro único e NEUTRO: esta página é da empresa, não de um app.
+     A paleta creme, rosa e marrom é do Preço Certo e fica só na página dele.
+     Aqui, cinzas sem cor de marca: cada app novo entra como um cartão e leva a
+     própria identidade na página dele. */
+  :root {
+    color-scheme: dark;
+    --bg: #121418;
+    --surface: #1B1F25;
+    --text: #E8EAED;
+    --muted: #9AA3AE;
+    --border: #2C323A;
+    --accent: #8A94A0;
+    --brand: #E8EAED;
+    --brand-text: #121418;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 16px 72px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; }
+  header.site { padding: 56px 0 8px; }
+  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0; }
+  .tagline { color: var(--muted); margin: 8px 0 0; font-size: 1.1rem; }
+  h2 {
+    font-size: 1.2rem;
+    margin: 44px 0 14px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== Cartão de app =====
+     Cada app do portfólio é um <article class="app">. Para acrescentar outro,
+     copie um cartão inteiro, troque o nome, a descrição e os links. */
+  .apps { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 640px) { .apps { grid-template-columns: 1fr 1fr; } }
+  article.app {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+  }
+  article.app h3 { margin: 0 0 4px; font-size: 1.25rem; }
+  article.app .what { color: var(--muted); font-size: .85rem; margin: 0 0 10px; }
+  article.app p.desc { margin: 0 0 18px; flex: 1; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .button {
+    display: inline-block;
+    background: var(--brand);
+    color: var(--brand-text);
+    padding: 11px 18px;
+    border-radius: 11px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .button:hover, .button:focus-visible { filter: brightness(1.12); }
+  .link { color: var(--muted); font-size: .95rem; }
+  a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  a.button { text-decoration: none; }
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .88rem;
+  }
+
+  /* Seletor de idioma: PT | EN | ES, discreto, no canto do topo. */
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .langs { display: flex; gap: 4px; margin-left: auto; font-size: .85rem; }
+  .langs a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .langs a:hover, .langs a:focus-visible { color: var(--text); }
+  .langs a[aria-current="page"] { color: var(--text); border-color: var(--muted); font-weight: 600; }
+  nav.langs-solo { display: flex; justify-content: flex-end; padding-top: 24px; }
+
+
+  /* ===== Abas de navegacao ===== */
+  nav.tabs { display: flex; gap: 2px; margin: 22px 0 0; border-bottom: 1px solid var(--border); overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  nav.tabs a { color: var(--muted); text-decoration: none; padding: 10px 14px; white-space: nowrap;
+    border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  nav.tabs a:hover, nav.tabs a:focus-visible { color: var(--text); }
+  nav.tabs a[aria-current="page"] { color: var(--text); font-weight: 600; border-bottom-color: var(--text); }
+  h1.page { font-size: 1.7rem; line-height: 1.25; margin: 34px 0 6px; }
+  p.intro { color: var(--muted); margin: 0 0 22px; }
+  /* Novidades */
+  .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 20px; margin: 0 0 14px; }
+  .news-item time { color: var(--muted); font-size: .85rem; }
+  .news-item h3 { margin: 4px 0 6px; font-size: 1.05rem; }
+  .news-item p, .news-item ul { margin: 0; color: var(--muted); font-size: .95rem; }
+  .news-item ul { padding-left: 20px; }
+  .tag { display: inline-block; margin-left: 6px; padding: 1px 8px; border: 1px solid var(--border); border-radius: 999px;
+    font-size: .72rem; color: var(--muted); vertical-align: middle; }
+  /* Ajuda */
+  h2.group { font-size: 1.1rem; margin: 30px 0 12px; padding-top: 0; border-top: 0; }
+  details.faq { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin: 0 0 10px; }
+  details.faq summary { cursor: pointer; padding: 14px 18px; font-weight: 600; }
+  details.faq p, details.faq ul { margin: 0; padding: 0 18px 16px; color: var(--muted); font-size: .95rem; }
+  details.faq ul { padding-left: 38px; }
+  /* Contato e texto corrido */
+  .box { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin: 0 0 14px; }
+  .box h3 { margin: 0 0 6px; font-size: 1.02rem; }
+  .box p, .box ul { margin: 0; color: var(--muted); font-size: .95rem; }
+  .box ul { padding-left: 20px; }
+  .doc h3 { font-size: 1.05rem; margin: 28px 0 8px; }
+  .doc p, .doc li { color: var(--text); }
+  .doc ul { padding-left: 22px; }
+  .doc li { margin: 4px 0; }
+  .updated { color: var(--muted); font-size: .88rem; }
+  .callout { background: var(--surface); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; }
+  footer a { color: var(--muted); }
+
+  /* Icone e miniatura nos cartoes */
+  article.app .app-head { display: flex; align-items: center; gap: 14px; margin: 0 0 14px; }
+  article.app .app-head h3 { margin: 0 0 2px; }
+  article.app .app-head .what { margin: 0; }
+  .app-icon { width: 48px; height: 48px; border-radius: 12px; flex: none; }
+  .thumb { height: 170px; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); margin: 0 0 14px; }
+  .thumb img { display: block; width: 100%; height: auto; }
+</style>
+<script>
+  /* Escolha automatica de idioma, so na primeira visita e so na pagina padrao (pt). */
+  (function () {
+    try {
+      var salvo = localStorage.getItem('lang');
+      var l = salvo || String((navigator.languages && navigator.languages[0]) || navigator.language || 'pt').slice(0, 2).toLowerCase();
+      if (l !== 'pt') location.replace(l === 'es' ? '/es/novedades/' : '/en/news/');
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
-<p><a href="/pt/novidades/">/pt/novidades/</a></p>
+<main>
+
+  <nav class="langs langs-solo" aria-label="Language"><a href="/novidades/" lang="pt" hreflang="pt" aria-current="page" onclick="try{localStorage.setItem('lang','pt')}catch(e){}">PT</a><a href="/en/news/" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">EN</a><a href="/es/novedades/" lang="es" hreflang="es" onclick="try{localStorage.setItem('lang','es')}catch(e){}">ES</a></nav>
+
+  <header class="site">
+    <p class="company" style="font-size:2.1rem;line-height:1.2;margin:0;font-weight:700"><a href="/" style="text-decoration:none">FLR Sistemas</a></p>
+    <p class="tagline">Aplicativos para Android.</p>
+  </header>
+
+  <nav class="tabs" aria-label="Seções do site"><a href="/">Apps</a><a href="/novidades/" aria-current="page">Novidades</a><a href="/ajuda/">Ajuda</a><a href="/contato/">Contato</a><a href="/privacidade/">Privacidade</a></nav>
+
+  <h1 class="page">Novidades</h1>
+  <p class="intro">O que mudou nos nossos apps e no site.</p>
+
+  <article class="news-item">
+    <time datetime="2026-11-18">18/11/2026</time>
+    <h3>Site e Lista de Compras em 3 idiomas <span class="tag">Site</span></h3>
+    <p>O site está disponível em português, inglês e espanhol. O app Lista de Compras também foi traduzido: ele começa no idioma do seu aparelho, e você pode trocar na tela de entrada.</p>
+  </article>
+
+  <article class="news-item">
+    <time datetime="2026-11-18">18/11/2026</time>
+    <h3>Site com abas e política de privacidade <span class="tag">Site</span></h3>
+    <p>O site ganhou menu com Apps, Novidades, Ajuda, Contato e Privacidade, e a política de privacidade do Lista de Compras.</p>
+  </article>
+
+  <article class="news-item">
+    <time datetime="2026-11-18">18/11/2026</time>
+    <h3>Lista de Compras: preço dos itens e total da lista <span class="tag">Lista de Compras</span></h3>
+    <ul>
+      <li>Campo de preço em cada item, com o total da lista dentro dela e em cada cartão da tela inicial.</li>
+      <li>Preço e quantidade agora só aceitam números.</li>
+      <li>Senhas novas precisam de no mínimo 8 caracteres, com letras e números.</li>
+    </ul>
+  </article>
+
+  <article class="news-item">
+    <time datetime="2026-11-18">18/11/2026</time>
+    <h3>Lista de Compras chega à web <span class="tag">Lista de Compras</span></h3>
+    <p>Listas de compras compartilhadas por e-mail, atualizadas em tempo real para todos os participantes. Funciona no navegador e instala no celular.</p>
+  </article>
+
+  <footer>
+    <p>
+      FLR Sistemas<br>
+      Contato: <a href="mailto:contato@flrsistemas.com.br">contato@flrsistemas.com.br</a><br>
+      <a href="/privacidade/">Privacidade</a>
+    </p>
+  </footer>
+
+</main>
 </body>
 </html>
